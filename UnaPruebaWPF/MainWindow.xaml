@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnaPruebaWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Página de Inicio" Height="450" Width="800">
     <Grid>
+        <Button x:Name="BotonHola" Content="Hola Mundo Cruel" Height="70" VerticalAlignment="Center" Width="260" FontSize="20" HorizontalAlignment="Center" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3"/>
 
     </Grid>
 </Window>
