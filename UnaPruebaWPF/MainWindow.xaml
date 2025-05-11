@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:UnaPruebaWPF"
         mc:Ignorable="d"
         Title="Página de Inicio" Height="450" Width="800">
+    <Window.DataContext>
+        <local:ModeloVista/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -15,12 +18,13 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
         <Label x:Name="Label01" Content="Nombres" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
-        <ListBox Grid.Row="1" Margin="10" Name="ListaNombres" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <ScrollViewer  Grid.Row="1" Margin="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <ListBox Name="ListaNombres" ItemsSource="{Binding Milista}"/>
+        </ScrollViewer>
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10 ">
             <TextBox x:Name="EntradaTexto" TextWrapping="Wrap" Text="TextBox" Margin="20" HorizontalAlignment="Stretch" Height="40" FontSize="20" VerticalContentAlignment="Center" Cursor=""/>
-            <Button x:Name="BotonHola" Content="Hola Mundo Cruel" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Grid.Column="1" Margin="0,20,0,0" Grid.Row="1" HorizontalAlignment="Center" Width="260"/>
+            <Button x:Name="BotonHola" Content="Hola Mundo Cruel" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Grid.Column="1" Margin="0,20,0,0" Grid.Row="1" HorizontalAlignment="Center" Width="260" Click="ClickBoton"/>
         </StackPanel>
 
     </Grid>

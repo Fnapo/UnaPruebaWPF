@@ -20,5 +20,15 @@ namespace UnaPruebaWPF
         {
             InitializeComponent();
         }
+
+        private void ClickBoton(object sender, RoutedEventArgs e)
+        {
+            string dato = EntradaTexto.Text.Trim();
+
+            if (!string.IsNullOrWhiteSpace(dato))
+            {
+                ((ModeloVista)DataContext).Milista.Add(dato);
+            }
+        }
     }
 }
