@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="Label01" Content="Nombres" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="220" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"/>
         <ScrollViewer  Grid.Row="1" Margin="10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            <ListBox Name="ListaNombres" ItemsSource="{Binding Milista}"/>
+            <ListBox Name="ListaNombres" ItemsSource="{Binding Milista}" SelectionChanged="ListaNombres_SelectionChanged"/>
         </ScrollViewer>
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10 ">
 

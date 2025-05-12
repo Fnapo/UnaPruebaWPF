@@ -38,5 +38,23 @@ namespace UnaPruebaWPF
             }
             EntradaTexto.Text = "";
         }
+
+        private void ListaNombres_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string dato = "";
+
+            switch (e.AddedItems.Count)
+            {
+                case 1:
+                    dato = (string)(e.AddedItems[0]);
+                    break;
+                case 0:
+                    dato = "Ningún elemento seleccionado";
+                    break;
+                default:
+                    dato = "Demasiados elementos seleccionados";
+                    break;
+            }
+        }
     }
 }
