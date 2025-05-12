@@ -47,6 +47,7 @@ namespace UnaPruebaWPF
             {
                 case 1:
                     dato = (string)(e.AddedItems[0]);
+                    ElementoLista.Content = dato;
                     break;
                 case 0:
                     dato = "Ningún elemento seleccionado";
