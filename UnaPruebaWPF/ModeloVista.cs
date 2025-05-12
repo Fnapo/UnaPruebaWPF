@@ -9,7 +9,7 @@ namespace UnaPruebaWPF
 {
     public class ModeloVista
     {
-        public ObservableCollection<string> Milista { get; protected set; } = new ObservableCollection<string>();
+        public ObservableCollection<string> Milista { get; private set; } = new ObservableCollection<string>();
 
         public ModeloVista() {
             Milista.Add("Juan Hidalgo");
