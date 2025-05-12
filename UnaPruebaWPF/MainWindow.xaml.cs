@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,13 @@ namespace UnaPruebaWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly ObservableCollection<string> milista;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            milista = ((ModeloVista)DataContext).Milista;
         }
 
         private void ClickBoton(object sender, RoutedEventArgs e)
@@ -27,8 +32,11 @@ namespace UnaPruebaWPF
 
             if (!string.IsNullOrWhiteSpace(dato))
             {
-                ((ModeloVista)DataContext).Milista.Add(dato);
+                Efectos.Capitalizar(ref dato);
+                milista.Add(dato);
+                EntradaTexto.Text = "";
             }
+            EntradaTexto.Text = "";
         }
     }
 }
