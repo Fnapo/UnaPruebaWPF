@@ -30,8 +30,8 @@
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -40,6 +40,7 @@
             </Grid.ColumnDefinitions>
             <TextBox x:Name="EntradaTexto" TextWrapping="Wrap" Text="" Margin="10" HorizontalAlignment="Stretch" Height="40" FontSize="20" VerticalContentAlignment="Center" Cursor=""/>
             <Button x:Name="BotonHola" Content="Hola Mundo Cruel" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Grid.Column="0" Margin="10" Grid.Row="1" HorizontalAlignment="Center" Width="260" Click="ClickBoton"/>
+            <Label x:Name="ElementoLista" Content="Nada elegido" HorizontalAlignment="Stretch" Height="57" Margin="10" Grid.Row="2" VerticalAlignment="Center" VerticalContentAlignment="Center" />
         </Grid>
     </Grid>
 </Window>
