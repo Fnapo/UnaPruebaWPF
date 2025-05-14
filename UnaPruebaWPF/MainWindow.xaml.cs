@@ -17,13 +17,13 @@ namespace UnaPruebaWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ObservableCollection<string> milista;
+        //private readonly ObservableCollection<string> milista;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            milista = ((ModeloVista)DataContext).Milista;
+            //milista = ((ModeloVista)DataContext).Milista;
         }
 
         private void ClickBoton(object sender, RoutedEventArgs e)
@@ -33,29 +33,47 @@ namespace UnaPruebaWPF
             if (!string.IsNullOrWhiteSpace(dato))
             {
                 Efectos.Capitalizar(ref dato);
-                milista.Add(dato);
-                EntradaTexto.Text = "";
+                MiModelo.Milista.Add(dato);
             }
             EntradaTexto.Text = "";
         }
 
         private void ListaNombres_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string dato = "";
+            //string? dato = ListaNombres.SelectedItem as string;
 
-            switch (e.AddedItems.Count)
+            // if(dato is null) { return ; }
+
+            VerElemento();
+        }
+
+        private void VerElemento()
+        {
+            if (ListaNombres.SelectedItem is string dato)
             {
-                case 1:
-                    dato = (string)(e.AddedItems[0]);
-                    ElementoLista.Content = dato;
-                    break;
-                case 0:
-                    dato = "Ningún elemento seleccionado";
-                    break;
-                default:
-                    dato = "Demasiados elementos seleccionados";
-                    break;
+                if (!string.IsNullOrWhiteSpace(dato.Trim()))
+                {
+                    ElementoLista.Content = dato + $" ({ListaNombres.SelectedIndex})";
+                }
             }
+        }
+
+        private void ClickModificar(object sender, RoutedEventArgs e)
+        {
+            string dato = EntradaTexto.Text.Trim();
+            int indice = ListaNombres.SelectedIndex;
+
+            if (!string.IsNullOrWhiteSpace(dato) && ( indice >= 0))
+            {
+                string modificacion = $"{ListaNombres.SelectedItem} --> ";
+
+                Efectos.Capitalizar(ref dato);
+                MiModelo.Milista[ListaNombres.SelectedIndex] = dato;
+                ListaNombres.SelectedIndex = indice;
+                modificacion += $"{dato}";
+                LabelCambios.Content = modificacion;
+            }
+            EntradaTexto.Text = "";
         }
     }
 }

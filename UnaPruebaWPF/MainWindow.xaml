@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Página de Inicio" Height="450" Width="800">
     <Window.DataContext>
-        <local:ModeloVista/>
+        <local:ModeloVista x:Name="MiModelo"/>
     </Window.DataContext>
     <Window.Resources>
 
@@ -39,8 +39,19 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBox x:Name="EntradaTexto" TextWrapping="Wrap" Text="" Margin="10" HorizontalAlignment="Stretch" Height="40" FontSize="20" VerticalContentAlignment="Center" Cursor=""/>
-            <Button x:Name="BotonHola" Content="Hola Mundo Cruel" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Grid.Column="0" Margin="10" Grid.Row="1" HorizontalAlignment="Center" Width="260" Click="ClickBoton"/>
-            <Label x:Name="ElementoLista" Content="Nada elegido" HorizontalAlignment="Stretch" Height="57" Margin="10" Grid.Row="2" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+            <Grid Grid.Column="1" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="BotonAgregar" Content="Agregar" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Margin="10" HorizontalAlignment="Stretch" Click="ClickBoton" Background="#FFDDDDE6"/>
+                <Button x:Name="BotonUpdate" Content="Modificar" FontSize="20" IsDefault="True" Cursor="Hand" FontWeight="Bold" BorderThickness="3,3,3,3" Margin="10" Grid.Column="1" HorizontalAlignment="Stretch" Click="ClickModificar" Background="#FFDDE6DD"/>
+            </Grid>
+            <Label x:Name="ElementoLista" Content="" HorizontalAlignment="Stretch" Height="57" Margin="10" Grid.Row="2" VerticalAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="2" />
         </Grid>
+        <Label x:Name="LabelCambios" Grid.Column="1" Content="" HorizontalAlignment="Center" Height="40" Margin="10" VerticalAlignment="Center" Width="320" BorderThickness="3" BorderBrush="Black" />
     </Grid>
 </Window>
